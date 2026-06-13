@@ -21,6 +21,8 @@
     "DisableNativeM3u8PlayerLabel": "ネイティブのM3U8プレーヤーを無効にする",
     "EnableTextMessageLabel": "テキストチャット",
     "EnableMiniBarLabel": "フルスクリーンビデオ時のミニウィンドウ",
+    "EnableMessageVoiceLabel": "テキストメッセージを音声で読み上げる",
+    "EnableMessageVoiceLabelHelp": "オフにすると、受信したテキストメッセージは通知のみ表示され、音声で読み上げられません",
     "CheckUpdateLabel": "更新を確認",
     "CheckUpdateSucc": "更新に成功しました"
 }

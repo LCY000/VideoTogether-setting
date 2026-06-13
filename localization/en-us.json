@@ -21,6 +21,8 @@
     "DisableNativeM3u8PlayerLabel": "Disable native M3U8 player",
     "EnableTextMessageLabel": "Text Message",
     "EnableMiniBarLabel": "Mini Bar at fullscreen video",
+    "EnableMessageVoiceLabel": "Read text messages aloud",
+    "EnableMessageVoiceLabelHelp": "When off, incoming text messages only show a notification and are not read aloud",
     "CheckUpdateLabel": "Check Update",
     "CheckUpdateSucc": "Update Successfully"
 }

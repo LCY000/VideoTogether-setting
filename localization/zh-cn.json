@@ -21,6 +21,8 @@
     "DisableNativeM3u8PlayerLabel": "关闭原生M3U8播放器",
     "EnableTextMessageLabel": "文本聊天",
     "EnableMiniBarLabel": "全屏视频时的迷你小窗",
+    "EnableMessageVoiceLabel": "文字讯息语音播报",
+    "EnableMessageVoiceLabelHelp": "关闭后，收到文字讯息时只会显示通知，不会用语音念出来",
     "CheckUpdateLabel": "检查更新",
     "CheckUpdateSucc": "更新成功"
 }
