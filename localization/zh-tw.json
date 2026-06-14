@@ -19,6 +19,7 @@
     "EasyShareLabel": "輕鬆分享",
     "SuperEasyShareLabel": "超級無敵強的輕鬆分享（可能會影響影片播放）",
     "DisableNativeM3u8PlayerLabel": "關閉原生 M3U8 播放器",
+    "DisableNativeM3u8PlayerLabelHelp": "VideoTogether 一律用自己的播放器處理 m3u8/HLS 影片——瀏覽器原生 HLS 播放器（尤其 Android Chrome）不提供同步所需的控制。此為必要設定，固定開啟。",
     "EnableTextMessageLabel": "文字聊天",
     "EnableTextMessageLabelHelp": "房間內的即時文字訊息：和同房間的人互相傳文字（像聊天室）。開啟後才會顯示輸入框與收到的訊息。",
     "EnableMiniBarLabel": "全螢幕影片時的迷你小窗顯示",

@@ -19,6 +19,7 @@
     "EasyShareLabel": "Easy Share",
     "SuperEasyShareLabel": "Super Powerful Easy Share(may cause video playback issues)",
     "DisableNativeM3u8PlayerLabel": "Disable native M3U8 player",
+    "DisableNativeM3u8PlayerLabelHelp": "VideoTogether always uses its own player for m3u8/HLS video — the browser's native HLS player (especially Android Chrome) doesn't expose the controls needed for syncing. Required setting, always on.",
     "EnableTextMessageLabel": "Text Message",
     "EnableTextMessageLabelHelp": "In-room text chat: send text messages to others in the same room (like a chat box). Turn on to show the input box and incoming messages.",
     "EnableMiniBarLabel": "Show the mini window during fullscreen video",

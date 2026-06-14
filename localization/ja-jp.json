@@ -19,6 +19,7 @@
     "EasyShareLabel": "簡単に共有",
     "SuperEasyShareLabel": "超簡単共有（ビデオ再生に影響を与える可能性あり）",
     "DisableNativeM3u8PlayerLabel": "ネイティブのM3U8プレーヤーを無効にする",
+    "DisableNativeM3u8PlayerLabelHelp": "VideoTogether は m3u8/HLS 動画を常に独自プレーヤーで処理します——ブラウザのネイティブ HLS プレーヤー（特に Android Chrome）は同期に必要な制御を提供しません。必須設定で、常にオンです。",
     "EnableTextMessageLabel": "テキストチャット",
     "EnableTextMessageLabelHelp": "ルーム内のテキストチャット：同じ部屋の人とテキストをやり取りします（チャット欄）。オンにすると入力欄と受信メッセージが表示されます。",
     "EnableMiniBarLabel": "全画面動画時にミニウィンドウを表示",
