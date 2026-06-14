@@ -32,9 +32,6 @@
         </a>
         <ul class="mdui-menu" id="menu">
             <li class="mdui-menu-item">
-                <a class="mdui-ripple" id="CheckUpdateLabel" onClick="checkUpdate()"></a>
-            </li>
-            <li class="mdui-menu-item">
                 <a class="mdui-ripple" id="Refresh" onClick="window.location.reload()"></a>
             </li>
             <li class="mdui-menu-item">
@@ -209,7 +206,8 @@
 
                     <!-- Rectangular switch -->
                     <div class="mdui-card-content" style="padding-top: 0px">
-                        <div class="mdui-clearfix mdui-p-t-2">
+                        <!-- 語言（首列；用 id 讓它在 mdui 處理好前先隱藏，避免閃原生樣式）-->
+                        <div class="mdui-clearfix mdui-p-t-2" id="vtLangRow">
                             Language
                             <div class="mdui-float-right">
                                 <select id="DisplayLanguage">
@@ -221,6 +219,7 @@
                             </div>
                         </div>
 
+                        <!-- 介面在右下角預設最小化 -->
                         <div class="mdui-clearfix mdui-p-t-2">
                             <span onclick="mdui.snackbar({message: getLanguageText('MinimiseDefaultLabelHelp')})">
                                 <a id="MinimiseDefaultLabel"></a>
@@ -232,25 +231,16 @@
                             </label>
                         </div>
 
+                        <!-- 全螢幕影片時的迷你小窗（從實驗性功能移來，屬穩定實用功能）-->
                         <div class="mdui-clearfix mdui-p-t-2">
-                            <a id="EchoCancellationLabel"></a>
+                            <a id="EnableMiniBarLabel"></a>
                             <label class="mdui-switch mdui-float-right">
-                                <input id="EchoCancellation" type="checkbox">
+                                <input id="EnableMiniBar" type="checkbox">
                                 <span class="mdui-switch-icon"></span>
                             </label>
                         </div>
 
-                        <div class="mdui-clearfix mdui-p-t-2">
-                            <span onclick="mdui.snackbar({message: getLanguageText('DisableRedirectJoinLabelHelp')})">
-                                <a id="DisableRedirectJoinLabel"></a>
-                                <i class="mdui-icon material-icons mdui-ripple">help_outline</i>
-                            </span>
-                            <label class="mdui-switch mdui-float-right">
-                                <input id="DisableRedirectJoin" type="checkbox">
-                                <span class="mdui-switch-icon"></span>
-                            </label>
-                        </div>
-
+                        <!-- 我創建的房間，觀眾要密碼才能加入 -->
                         <div class="mdui-clearfix mdui-p-t-2">
                             <span onclick="mdui.snackbar({message: getLanguageText('PasswordProtectedRoomLabelHelp')})">
                                 <a id="PasswordProtectedRoomLabel"></a>
@@ -262,6 +252,7 @@
                             </label>
                         </div>
 
+                        <!-- 成員影片卡頓時，房主暫停等待 -->
                         <div class="mdui-clearfix mdui-p-t-2">
                             <a id="WaitForLoaddingLabel"></a>
                             <label class="mdui-switch mdui-float-right">
@@ -270,6 +261,32 @@
                             </label>
                         </div>
 
+                        <!-- 通話時開啟回聲消除和雜訊消除 -->
+                        <div class="mdui-clearfix mdui-p-t-2">
+                            <a id="EchoCancellationLabel"></a>
+                            <label class="mdui-switch mdui-float-right">
+                                <input id="EchoCancellation" type="checkbox">
+                                <span class="mdui-switch-icon"></span>
+                            </label>
+                        </div>
+
+                        <!-- 加入房間時不要自動跳轉（疑難排解用，排最後）-->
+                        <div class="mdui-clearfix mdui-p-t-2">
+                            <span onclick="mdui.snackbar({message: getLanguageText('DisableRedirectJoinLabelHelp')})">
+                                <a id="DisableRedirectJoinLabel"></a>
+                                <i class="mdui-icon material-icons mdui-ripple">help_outline</i>
+                            </span>
+                            <label class="mdui-switch mdui-float-right">
+                                <input id="DisableRedirectJoin" type="checkbox">
+                                <span class="mdui-switch-icon"></span>
+                            </label>
+                        </div>
+
+                        <!-- 檢查新版本更新：明顯可見的按鈕 -->
+                        <div class="mdui-clearfix mdui-p-t-2" style="margin-top:10px;text-align:center;">
+                            <button class="mdui-btn mdui-btn-raised mdui-color-theme-accent" onclick="checkUpdate()"
+                                id="CheckUpdateLabel" style="border-radius:999px;padding:0 22px;"></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -295,20 +312,6 @@
                             </label>
                         </div>
                         <div class="mdui-clearfix mdui-p-t-2">
-                            <a id="EasyShareLabel"></a>
-                            <label class="mdui-switch mdui-float-right">
-                                <input id="EasyShare" type="checkbox">
-                                <span class="mdui-switch-icon"></span>
-                            </label>
-                        </div>
-                        <div class="mdui-clearfix mdui-p-t-2">
-                            <a id="SuperEasyShareLabel"></a>
-                            <label class="mdui-switch mdui-float-right">
-                                <input id="SuperEasyShare" type="checkbox">
-                                <span class="mdui-switch-icon"></span>
-                            </label>
-                        </div>
-                        <div class="mdui-clearfix mdui-p-t-2">
                             <a id="DisableNativeM3u8PlayerLabel"></a>
                             <label class="mdui-switch mdui-float-right">
                                 <input id="DisableNativeM3u8Player" type="checkbox">
@@ -319,13 +322,6 @@
                             <a id="EnableTextMessageLabel"></a>
                             <label class="mdui-switch mdui-float-right">
                                 <input id="EnableTextMessage" type="checkbox">
-                                <span class="mdui-switch-icon"></span>
-                            </label>
-                        </div>
-                        <div class="mdui-clearfix mdui-p-t-2">
-                            <a id="EnableMiniBarLabel"></a>
-                            <label class="mdui-switch mdui-float-right">
-                                <input id="EnableMiniBar" type="checkbox">
                                 <span class="mdui-switch-icon"></span>
                             </label>
                         </div>
@@ -531,6 +527,12 @@
     </script>
     <!-- MDUI JavaScript -->
     <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script>
+        // 全部資源(含 mdui JS,負責美化語言下拉)載入完成才顯示語言列，避免閃現原生 select 樣式
+        window.addEventListener('load', function () { document.documentElement.classList.add('vt-ready'); });
+        // 保險：若 load 太久，最多 2.5 秒後也顯示，避免一直空白
+        setTimeout(function () { document.documentElement.classList.add('vt-ready'); }, 2500);
+    </script>
     <style>
         :root {
             --vt-accent: #5b8def;
@@ -630,6 +632,15 @@
         .mdui-switch input[type=checkbox]:checked+.mdui-switch-icon::before {
             background-color: var(--vt-accent) !important;
             /* 圓鈕 */
+        }
+
+        /* 避免語言下拉在 mdui JS 處理好前閃現原生樣式：全部載入完成(vt-ready)才顯示 */
+        #vtLangRow {
+            visibility: hidden;
+        }
+
+        .vt-ready #vtLangRow {
+            visibility: visible;
         }
 
         /* 深色模式（明確 dark 或 auto+系統深色）跟著走 */
