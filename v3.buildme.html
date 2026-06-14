@@ -154,6 +154,11 @@
                         function getLanguageText(key) {
                             return languageDicts[getDisplayLanguage(_settingLanguage)][key];
                         }
+                        // 點 ⓘ 在該列下方就地展開/收合說明（取代會自動消失的 snackbar）
+                        function toggleHelp(id) {
+                            var el = document.getElementById(id);
+                            if (el) el.classList.toggle('vt-help-open');
+                        }
 
                         let extensionEnabled = false;
                         window.addEventListener("message", e => {
@@ -221,15 +226,16 @@
 
                         <!-- 介面在右下角預設最小化 -->
                         <div class="mdui-clearfix mdui-p-t-2">
-                            <span onclick="mdui.snackbar({message: getLanguageText('MinimiseDefaultLabelHelp')})">
+                            <span class="vt-help-trigger" onclick="toggleHelp('MinimiseDefaultLabelHelp')">
                                 <a id="MinimiseDefaultLabel"></a>
-                                <i class="mdui-icon material-icons mdui-ripple">help_outline</i>
+                                <i class="mdui-icon material-icons vt-help-icon">info_outline</i>
                             </span>
                             <label class="mdui-switch mdui-float-right">
                                 <input id="MinimiseDefault" type="checkbox">
                                 <span class="mdui-switch-icon"></span>
                             </label>
                         </div>
+                        <div id="MinimiseDefaultLabelHelp" class="vt-help-text"></div>
 
                         <!-- 全螢幕影片時的迷你小窗（從實驗性功能移來，屬穩定實用功能）-->
                         <div class="mdui-clearfix mdui-p-t-2">
@@ -242,15 +248,16 @@
 
                         <!-- 我創建的房間，觀眾要密碼才能加入 -->
                         <div class="mdui-clearfix mdui-p-t-2">
-                            <span onclick="mdui.snackbar({message: getLanguageText('PasswordProtectedRoomLabelHelp')})">
+                            <span class="vt-help-trigger" onclick="toggleHelp('PasswordProtectedRoomLabelHelp')">
                                 <a id="PasswordProtectedRoomLabel"></a>
-                                <i class="mdui-icon material-icons mdui-ripple">help_outline</i>
+                                <i class="mdui-icon material-icons vt-help-icon">info_outline</i>
                             </span>
                             <label class="mdui-switch mdui-float-right">
                                 <input id="PasswordProtectedRoom" type="checkbox">
                                 <span class="mdui-switch-icon"></span>
                             </label>
                         </div>
+                        <div id="PasswordProtectedRoomLabelHelp" class="vt-help-text"></div>
 
                         <!-- 成員影片卡頓時，房主暫停等待 -->
                         <div class="mdui-clearfix mdui-p-t-2">
@@ -272,15 +279,16 @@
 
                         <!-- 加入房間時不要自動跳轉（疑難排解用，排最後）-->
                         <div class="mdui-clearfix mdui-p-t-2">
-                            <span onclick="mdui.snackbar({message: getLanguageText('DisableRedirectJoinLabelHelp')})">
+                            <span class="vt-help-trigger" onclick="toggleHelp('DisableRedirectJoinLabelHelp')">
                                 <a id="DisableRedirectJoinLabel"></a>
-                                <i class="mdui-icon material-icons mdui-ripple">help_outline</i>
+                                <i class="mdui-icon material-icons vt-help-icon">info_outline</i>
                             </span>
                             <label class="mdui-switch mdui-float-right">
                                 <input id="DisableRedirectJoin" type="checkbox">
                                 <span class="mdui-switch-icon"></span>
                             </label>
                         </div>
+                        <div id="DisableRedirectJoinLabelHelp" class="vt-help-text"></div>
 
                         <!-- 檢查新版本更新：明顯可見的按鈕 -->
                         <div class="mdui-clearfix mdui-p-t-2" style="margin-top:10px;text-align:center;">
@@ -326,15 +334,16 @@
                             </label>
                         </div>
                         <div class="mdui-clearfix mdui-p-t-2">
-                            <span onclick="mdui.snackbar({message: getLanguageText('EnableMessageVoiceLabelHelp')})">
+                            <span class="vt-help-trigger" onclick="toggleHelp('EnableMessageVoiceLabelHelp')">
                                 <a id="EnableMessageVoiceLabel"></a>
-                                <i class="mdui-icon material-icons mdui-ripple">help_outline</i>
+                                <i class="mdui-icon material-icons vt-help-icon">info_outline</i>
                             </span>
                             <label class="mdui-switch mdui-float-right">
                                 <input id="EnableMessageVoice" type="checkbox">
                                 <span class="mdui-switch-icon"></span>
                             </label>
                         </div>
+                        <div id="EnableMessageVoiceLabelHelp" class="vt-help-text"></div>
                         <div id="voicePannel" class="mdui-clearfix mdui-p-t-2">
                             <div>
                                 <label id="voiceAlertLabel" class="mdui-float-left">
@@ -535,8 +544,8 @@
     </script>
     <style>
         :root {
-            --vt-accent: #5b8def;
-            --vt-grad: linear-gradient(135deg, #5b8def 0%, #4a78e0 100%);
+            --vt-accent: #21509c;
+            --vt-grad: linear-gradient(135deg, #265cad 0%, #1a3f7d 100%);
             --vt-text: #1b2440;
             --vt-border: rgba(20, 45, 90, 0.12);
         }
@@ -623,15 +632,50 @@
             border-radius: 12px;
         }
 
-        /* 開關校準成面板的 #5b8def（覆蓋 mdui accent-blue 內建的 #82b1ff/#448aff）*/
+        /* 開關校準成沉穩深藍 #21509c（比面板「創建房間」鈕更深，覆蓋 mdui accent-blue 內建的 #82b1ff/#448aff）*/
         .mdui-switch input[type=checkbox]:checked+.mdui-switch-icon {
-            background-color: rgba(91, 141, 239, 0.5) !important;
+            background-color: rgba(33, 80, 156, 0.5) !important;
             /* 軌道 */
         }
 
         .mdui-switch input[type=checkbox]:checked+.mdui-switch-icon::before {
             background-color: var(--vt-accent) !important;
             /* 圓鈕 */
+        }
+
+        /* 說明 ⓘ：靜置灰、hover 變深藍；點了在該列下方就地展開說明（取代會自動消失的 snackbar） */
+        .vt-help-trigger {
+            cursor: pointer;
+        }
+
+        .vt-help-icon {
+            font-size: 18px !important;
+            color: #9aa3b2;
+            vertical-align: middle;
+            margin-left: 2px;
+            transition: color .15s ease;
+        }
+
+        .vt-help-trigger:hover .vt-help-icon {
+            color: var(--vt-accent);
+        }
+
+        .vt-help-text {
+            display: none;
+            white-space: pre-line;
+            margin: 8px 0 2px;
+            padding: 10px 13px;
+            font-size: 13px;
+            line-height: 1.65;
+            color: #45506b;
+            background: rgba(47, 107, 219, 0.06);
+            border: 1px solid var(--vt-border);
+            border-left: 3px solid var(--vt-accent);
+            border-radius: 10px;
+        }
+
+        .vt-help-text.vt-help-open {
+            display: block;
         }
 
         /* 避免語言下拉在 mdui JS 處理好前閃現原生樣式：全部載入完成(vt-ready)才顯示 */
@@ -659,6 +703,11 @@
             color: #f1f1f4;
         }
 
+        body.mdui-theme-layout-dark .vt-help-text {
+            color: #c7cde0;
+            background: rgba(120, 150, 220, 0.10);
+        }
+
         @media (prefers-color-scheme: dark) {
             body.mdui-theme-layout-auto {
                 background: linear-gradient(160deg, #14171f 0%, #1a1e2b 60%, #201a26 100%) !important;
@@ -673,6 +722,11 @@
 
             body.mdui-theme-layout-auto .mdui-card-primary-title {
                 color: #f1f1f4;
+            }
+
+            body.mdui-theme-layout-auto .vt-help-text {
+                color: #c7cde0;
+                background: rgba(120, 150, 220, 0.10);
             }
         }
     </style>
