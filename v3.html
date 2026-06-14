@@ -63,7 +63,7 @@
                             },
                             {
                                 key: "EnableMessageVoice",
-                                defaultVal: true
+                                defaultVal: false
                             }
                         ]
 
@@ -190,7 +190,7 @@
 
                         let currentExtensionLanguages = undefined;
                         function getExtensionLanguages() {
-                            let languages = ['en-us', 'zh-cn'];
+                            let languages = ['zh-cn', 'zh-tw', 'en-us', 'ja-jp'];
                             try{
                                 if(currentExtensionLanguages.length > 0){
                                     languages = currentExtensionLanguages;
@@ -332,6 +332,7 @@
                                     <option value="zh-cn">简体中文</option>
                                     <option value="zh-tw">繁體中文</option>
                                     <option value="en-us">English</option>
+                                    <option value="ja-jp">日本語</option>
                                 </select>
                             </div>
                         </div>
@@ -656,8 +657,8 @@
     </script>
     <style>
         :root {
-            --vt-accent: #21509c;
-            --vt-grad: linear-gradient(135deg, #265cad 0%, #1a3f7d 100%);
+            --vt-accent: #3568c9;
+            --vt-grad: linear-gradient(135deg, #4a82e6 0%, #3162c8 100%);
             --vt-text: #1b2440;
             --vt-border: rgba(20, 45, 90, 0.12);
         }
@@ -728,9 +729,18 @@
             font-size: 20px;
         }
 
-        /* 每排設定多點呼吸 */
+        /* 每排設定多點呼吸 + 文字／ⓘ／開關同一條水平線、上下置中 */
         .mdui-card-content .mdui-clearfix.mdui-p-t-2 {
             padding-top: 14px !important;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 開關／語言下拉靠最右（flex 下用 margin-left:auto 取代 float） */
+        .mdui-card-content .mdui-clearfix.mdui-p-t-2 .mdui-float-right {
+            margin-left: auto;
+            float: none;
         }
 
         /* 卡片內文字按鈕(檢查更新)用品牌藍；工具列按鈕維持白色 */
@@ -744,9 +754,9 @@
             border-radius: 12px;
         }
 
-        /* 開關校準成沉穩深藍 #21509c（比面板「創建房間」鈕更深，覆蓋 mdui accent-blue 內建的 #82b1ff/#448aff）*/
+        /* 開關校準成主題藍 #3568c9（比原本淺藍深、又比深藍沉穩，覆蓋 mdui accent-blue 內建的 #82b1ff/#448aff）*/
         .mdui-switch input[type=checkbox]:checked+.mdui-switch-icon {
-            background-color: rgba(33, 80, 156, 0.5) !important;
+            background-color: rgba(53, 104, 201, 0.5) !important;
             /* 軌道 */
         }
 
@@ -757,6 +767,9 @@
 
         /* 說明 ⓘ：靜置灰、hover 變深藍；點了在該列下方就地展開說明（取代會自動消失的 snackbar） */
         .vt-help-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             cursor: pointer;
         }
 
