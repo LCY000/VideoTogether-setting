@@ -631,6 +631,11 @@
             float: none;
         }
 
+        /* 置中的列（如「檢查新版本更新」按鈕）在 flex 下仍要置中 */
+        .mdui-card-content .mdui-clearfix.mdui-p-t-2[style*="text-align:center"] {
+            justify-content: center;
+        }
+
         /* 卡片內文字按鈕(檢查更新)用品牌藍；工具列按鈕維持白色 */
         .mdui-container .mdui-btn {
             color: var(--vt-accent);
