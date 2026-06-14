@@ -1,7 +1,10 @@
 # VideoTogether 設定頁 / Settings Page
 
-> AniméSync（VideoTogether fork）的設定頁原始碼。獨立 git 儲存庫，透過 GitHub Pages 部署，與前端 userscript／擴充功能連動。
-> Source for the AniméSync (VideoTogether fork) settings page. A standalone git repo, deployed via GitHub Pages, that works together with the frontend userscript / extension.
+**[中文](#中文) · [English](#english)**
+
+> VideoTogether 設定頁的原始碼。獨立的 git 儲存庫，透過 GitHub Pages 部署，與前端 userscript／擴充功能連動。
+>
+> Source for the VideoTogether settings page. A standalone git repository, deployed via GitHub Pages, that works together with the frontend userscript / extension.
 
 ---
 
@@ -22,16 +25,15 @@
 | `vercel.json` | 舊的 Vercel 設定（目前用 GitHub Pages，留著無害）。 |
 
 ### 建構
-在**主專案**根目錄執行（設定頁是主專案的內嵌 repo）：
+在前端主專案根目錄執行（設定頁是主專案的內嵌 repo）：
 ```bash
 python3 script/build_extension.py disable_network   # disable_network 可避免覆蓋未 commit 的本地修改
 ```
 建構會把 `*.buildme.html` + `localization/*.json` 編成 `v3.html`。
 
 ### 部署（GitHub Pages）
-設定頁是獨立 repo（`LCY000/VideoTogether-setting`），Pages 來源＝`main`：
+本儲存庫的 GitHub Pages 來源為 `main`：
 ```bash
-cd source/setting
 git add -A && git commit -m "..."
 git push origin main      # push 後 Pages 會自動重新部署 v3.html
 ```
@@ -40,11 +42,7 @@ git push origin main      # push 後 Pages 會自動重新部署 v3.html
 1. `v3.buildme.html` 加一段開關 DOM：label 的 `id` 必須是 `<Key>Label`、checkbox 的 `id` 必須是 `<Key>`。
 2. 要說明就加 `<span class="vt-help-trigger" onclick="toggleHelp('<Key>LabelHelp')">…<i class="vt-help-icon">info_outline</i></span>`，並在該列後面加 `<div id="<Key>LabelHelp" class="vt-help-text"></div>`（會自動被填入翻譯、點 ⓘ 就地展開）。
 3. `localization/*.json` 四語各加 `<Key>Label`（與選用的 `<Key>LabelHelp`）。
-4. 前端（`source/extension/vt.js`）用 `getVideoTogetherStorage('<Key>', 預設值)` 讀取。**預設值務必讓「未設定＝維持原本行為」**。
-
-### 之後若要推回上游 / 換部署位置（要改的地方）
-- **設定頁網址**：前端 `source/extension/vt.js` 最上方的 `VT_SETTING_PAGE_URL`（一行），以及 `source/extension/html/pannel.html` 的齒輪 `href`。改完重建即可。
-- **API／更新伺服器**：`source/extension/config/release_host`（目前＝上游的 `https://vt.panghair.com:5000/`）。「檢查新版本更新」就是去戳這台的 `/timestamp` 取得最新版本號。
+4. 前端用 `getVideoTogetherStorage('<Key>', 預設值)` 讀取。**預設值務必讓「未設定＝維持原本行為」**。
 
 ---
 
@@ -65,16 +63,15 @@ the page posts `postMessage({type:15, key, value})` → the content script write
 | `vercel.json` | Legacy Vercel config (we use GitHub Pages; harmless to keep). |
 
 ### Build
-Run from the **main project** root (this settings page is an embedded repo of it):
+Run from the frontend main project's root (this settings page is an embedded repo of it):
 ```bash
 python3 script/build_extension.py disable_network   # disable_network avoids clobbering uncommitted local edits
 ```
 The build compiles `*.buildme.html` + `localization/*.json` into `v3.html`.
 
 ### Deploy (GitHub Pages)
-This is a standalone repo (`LCY000/VideoTogether-setting`); the Pages source is `main`:
+This repository's GitHub Pages source is `main`:
 ```bash
-cd source/setting
 git add -A && git commit -m "..."
 git push origin main      # Pages redeploys v3.html automatically after push
 ```
@@ -83,8 +80,4 @@ git push origin main      # Pages redeploys v3.html automatically after push
 1. Add the toggle DOM in `v3.buildme.html`: the label's `id` must be `<Key>Label`, the checkbox's `id` must be `<Key>`.
 2. For a help note, add `<span class="vt-help-trigger" onclick="toggleHelp('<Key>LabelHelp')">…<i class="vt-help-icon">info_outline</i></span>` and, right after that row, `<div id="<Key>LabelHelp" class="vt-help-text"></div>` (auto-filled with the translation; click ⓘ to expand inline).
 3. Add `<Key>Label` (and optional `<Key>LabelHelp`) to all four `localization/*.json` files.
-4. In the frontend (`source/extension/vt.js`), read it with `getVideoTogetherStorage('<Key>', default)`. **Choose the default so "unset = current behavior".**
-
-### Re-pointing later (e.g. pushing back upstream / changing hosting)
-- **Settings page URL:** `VT_SETTING_PAGE_URL` at the top of `source/extension/vt.js` (one line), plus the gear `href` in `source/extension/html/pannel.html`. Rebuild after changing.
-- **API / update server:** `source/extension/config/release_host` (currently the upstream `https://vt.panghair.com:5000/`). "Check for updates" pings this host's `/timestamp` for the latest version number.
+4. In the frontend, read it with `getVideoTogetherStorage('<Key>', default)`. **Choose the default so "unset = current behavior".**

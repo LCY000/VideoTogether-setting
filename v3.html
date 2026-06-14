@@ -97,7 +97,7 @@
     "EnableMessageVoiceLabelHelp": "关闭后，收到文字讯息时只会显示通知，不会用语音念出来",
     "CheckUpdateLabel": "检查新版本更新",
     "OfficialWebsiteLabel": "官方网站",
-    "CheckUpdateSucc": "更新成功"
+    "CheckUpdateSucc": "已请求更新，刷新页面后生效"
 },
                             "zh-tw": {
     "LanguageName": "繁體中文",
@@ -128,7 +128,7 @@
     "EnableMessageVoiceLabelHelp": "關閉後，收到文字訊息時只會顯示通知，不會用語音念出來",
     "CheckUpdateLabel": "檢查新版本更新",
     "OfficialWebsiteLabel": "官方網站",
-    "CheckUpdateSucc": "更新成功"
+    "CheckUpdateSucc": "已要求更新，重新整理頁面後生效"
 }
 ,
                             "en-us": {
@@ -160,7 +160,7 @@
     "EnableMessageVoiceLabelHelp": "When off, incoming text messages only show a notification and are not read aloud",
     "CheckUpdateLabel": "Check for updates",
     "OfficialWebsiteLabel": "Official Site",
-    "CheckUpdateSucc": "Update Successfully"
+    "CheckUpdateSucc": "Update requested — refresh the page to apply"
 },
                             'ja-jp': {
     "LanguageName": "日本語",
@@ -191,7 +191,7 @@
     "EnableMessageVoiceLabelHelp": "オフにすると、受信したテキストメッセージは通知のみ表示され、音声で読み上げられません",
     "CheckUpdateLabel": "新しいバージョンを確認",
     "OfficialWebsiteLabel": "公式サイト",
-    "CheckUpdateSucc": "更新に成功しました"
+    "CheckUpdateSucc": "更新をリクエストしました。ページを再読み込みすると反映されます"
 }
 ,
                         }
@@ -213,8 +213,8 @@
                             let language = 'en-us';
                             let prefixLen = 0;
 
-                            if (typeof settingLanguage != 'string') {
-                                settingLanguage = navigator.language;
+                            if (typeof settingLanguage != 'string' || settingLanguage.trim() === '' || settingLanguage.toLowerCase() === 'auto') {
+                                settingLanguage = navigator.language; // 空值／auto＝自動偵測瀏覽器語言
                             }
                             if (typeof settingLanguage == 'string') {
                                 settingLanguage = settingLanguage.toLowerCase();
@@ -241,7 +241,7 @@
                                 _lastExtensionLanguages = lastExtensionLanguages;
                                 // update the select options
                                 const select = document.querySelector("#DisplayLanguage");
-                                select.innerHTML = "<option style='display: none'></option>";
+                                select.innerHTML = "<option value='auto'>Auto（自動偵測）</option>";
                                 for (let i = 0; i < lastExtensionLanguages.length; i++) {
                                     const language = lastExtensionLanguages[i];
                                     const option = document.createElement("option");
@@ -339,7 +339,7 @@
                             Language
                             <div class="mdui-float-right">
                                 <select id="DisplayLanguage">
-                                    <option style='display: none'></option>
+                                    <option value="auto">Auto（自動偵測）</option>
                                     <option value="zh-cn">简体中文</option>
                                     <option value="zh-tw">繁體中文</option>
                                     <option value="en-us">English</option>
@@ -878,7 +878,7 @@
             top: 78px;
             left: 50%;
             transform: translateX(-50%) translateY(-12px);
-            background: rgba(28, 56, 112, 0.96);
+            background: var(--vt-accent);
             color: #fff;
             padding: 11px 22px;
             border-radius: 999px;

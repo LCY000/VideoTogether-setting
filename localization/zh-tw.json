@@ -27,5 +27,5 @@
     "EnableMessageVoiceLabelHelp": "關閉後，收到文字訊息時只會顯示通知，不會用語音念出來",
     "CheckUpdateLabel": "檢查新版本更新",
     "OfficialWebsiteLabel": "官方網站",
-    "CheckUpdateSucc": "更新成功"
+    "CheckUpdateSucc": "已要求更新，重新整理頁面後生效"
 }
