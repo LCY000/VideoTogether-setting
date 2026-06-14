@@ -20,6 +20,7 @@
     "SuperEasyShareLabel": "超簡単共有（ビデオ再生に影響を与える可能性あり）",
     "DisableNativeM3u8PlayerLabel": "ネイティブのM3U8プレーヤーを無効にする",
     "EnableTextMessageLabel": "テキストチャット",
+    "EnableTextMessageLabelHelp": "ルーム内のテキストチャット：同じ部屋の人とテキストをやり取りします（チャット欄）。オンにすると入力欄と受信メッセージが表示されます。",
     "EnableMiniBarLabel": "全画面動画時にミニウィンドウを表示",
     "EnableMessageVoiceLabel": "テキストメッセージを音声で読み上げる",
     "EnableMessageVoiceLabelHelp": "オフにすると、受信したテキストメッセージは通知のみ表示され、音声で読み上げられません",

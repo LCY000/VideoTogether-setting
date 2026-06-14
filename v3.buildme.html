@@ -198,7 +198,10 @@
                                     document.querySelector(`#${item.key}`).checked = e.data.data[item.key] == undefined ? item.defaultVal : e.data.data[item.key];
                                 }
                                 currentExtensionLanguages = e.data.data.ExtensionLanguages;
-                                updateDisplayLanguage(e.data.data.DisplayLanguage);
+                                // 本頁記住的語言（localStorage）優先，擴充回傳不覆蓋使用者在本頁的選擇
+                                let _vtPageLang = null;
+                                try { _vtPageLang = localStorage.getItem('vtSettingDisplayLanguage'); } catch (e) { }
+                                updateDisplayLanguage(_vtPageLang || e.data.data.DisplayLanguage);
 
                             }
                         });
@@ -328,12 +331,16 @@
                             </label>
                         </div>
                         <div class="mdui-clearfix mdui-p-t-2">
-                            <a id="EnableTextMessageLabel"></a>
+                            <span class="vt-help-trigger" onclick="toggleHelp('EnableTextMessageLabelHelp')">
+                                <a id="EnableTextMessageLabel"></a>
+                                <i class="mdui-icon material-icons vt-help-icon">info_outline</i>
+                            </span>
                             <label class="mdui-switch mdui-float-right">
                                 <input id="EnableTextMessage" type="checkbox">
                                 <span class="mdui-switch-icon"></span>
                             </label>
                         </div>
+                        <div id="EnableTextMessageLabelHelp" class="vt-help-text"></div>
                         <div class="mdui-clearfix mdui-p-t-2">
                             <span class="vt-help-trigger" onclick="toggleHelp('EnableMessageVoiceLabelHelp')">
                                 <a id="EnableMessageVoiceLabel"></a>
@@ -455,7 +462,11 @@
                 DisplayLanguageSelect = new mdui.Select(document.querySelector('#DisplayLanguage'))
             }
         }, 500);
-        updateDisplayLanguage();
+        // 載入時先套用本頁記住的語言（localStorage），不必等擴充回傳就先把頁面切到正確語言
+        try {
+            var _vtSavedLang = localStorage.getItem('vtSettingDisplayLanguage');
+            updateDisplayLanguage(_vtSavedLang || undefined);
+        } catch (e) { updateDisplayLanguage(); }
         function checkBoxChanged(e) {
 
             console.log(e.target.id);
@@ -490,6 +501,11 @@
         document.querySelector("#PasswordProtectedRoom").addEventListener("change", checkBoxChanged);
         document.querySelector("#EchoCancellation").addEventListener("change", checkBoxChanged);
         document.querySelector("#DisplayLanguage").addEventListener("change", checkBoxChanged);
+        // 立即切換本頁語言並記住（不依賴擴充回傳，修正「切了語言頁面卻不變」）
+        document.querySelector("#DisplayLanguage").addEventListener("change", function (e) {
+            try { localStorage.setItem('vtSettingDisplayLanguage', e.target.value); } catch (err) { }
+            updateDisplayLanguage(e.target.value);
+        });
         document.querySelector("#WaitForLoadding").addEventListener("change", checkBoxChanged);
         document.querySelector("#SkipIntro").addEventListener("change", checkBoxChanged);
         document.querySelector("#EasyShare").addEventListener("change", checkBoxChanged);

@@ -20,6 +20,7 @@
     "SuperEasyShareLabel": "Super Powerful Easy Share(may cause video playback issues)",
     "DisableNativeM3u8PlayerLabel": "Disable native M3U8 player",
     "EnableTextMessageLabel": "Text Message",
+    "EnableTextMessageLabelHelp": "In-room text chat: send text messages to others in the same room (like a chat box). Turn on to show the input box and incoming messages.",
     "EnableMiniBarLabel": "Show the mini window during fullscreen video",
     "EnableMessageVoiceLabel": "Read text messages aloud",
     "EnableMessageVoiceLabelHelp": "When off, incoming text messages only show a notification and are not read aloud",

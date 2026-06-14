@@ -20,6 +20,7 @@
     "SuperEasyShareLabel": "超级无敌牛的轻松分享(可能会影响视频播放)",
     "DisableNativeM3u8PlayerLabel": "关闭原生M3U8播放器",
     "EnableTextMessageLabel": "文本聊天",
+    "EnableTextMessageLabelHelp": "房间内的即时文字消息：和同房间的人互相发文字（像聊天室）。开启后才会显示输入框与收到的消息。",
     "EnableMiniBarLabel": "全屏视频时显示迷你小窗",
     "EnableMessageVoiceLabel": "文字讯息语音播报",
     "EnableMessageVoiceLabelHelp": "关闭后，收到文字讯息时只会显示通知，不会用语音念出来",
