@@ -296,7 +296,9 @@
                                         isDisplayLanguageUpdated = true;
                                     }
                                 } catch { };
-                                document.querySelector("#DisplayLanguage").value = e.data.data.DisplayLanguage;
+                                let _vtLangVal = null;
+                                try { _vtLangVal = localStorage.getItem('vtSettingDisplayLanguage'); } catch (e) { }
+                                document.querySelector("#DisplayLanguage").value = _vtLangVal || e.data.data.DisplayLanguage || 'auto';
                                 try {
                                     if (isDisplayLanguageUpdated) {
                                         DisplayLanguageSelect.handleUpdate();
