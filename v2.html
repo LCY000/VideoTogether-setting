@@ -32,7 +32,12 @@
         </a>
         <ul class="mdui-menu" id="menu">
             <li class="mdui-menu-item">
+                <a class="mdui-ripple" id="CheckUpdateLabel" onClick="checkUpdate()"></a>
+            </li>
+            <li class="mdui-menu-item">
                 <a class="mdui-ripple" id="Refresh" onClick="window.location.reload()"></a>
+            </li>
+            <li class="mdui-menu-item">
                 <a class="mdui-ripple" id="Return" onClick="window.history.back()"></a>
             </li>
         </ul>
@@ -377,9 +382,6 @@
                             </label>
                         </div>
 
-                        <div class="mdui-clearfix mdui-p-t-2">
-                            <button class="mdui-btn" onclick="checkUpdate()" id="CheckUpdateLabel"></button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -729,6 +731,17 @@
         .mdui-snackbar,
         .mdui-select-menu {
             border-radius: 12px;
+        }
+
+        /* 開關校準成面板的 #5b8def（覆蓋 mdui accent-blue 內建的 #82b1ff/#448aff）*/
+        .mdui-switch input[type=checkbox]:checked+.mdui-switch-icon {
+            background-color: rgba(91, 141, 239, 0.5) !important;
+            /* 軌道 */
+        }
+
+        .mdui-switch input[type=checkbox]:checked+.mdui-switch-icon::before {
+            background-color: var(--vt-accent) !important;
+            /* 圓鈕 */
         }
 
         /* 深色模式（明確 dark 或 auto+系統深色）跟著走 */
