@@ -24,5 +24,6 @@
     "EnableMessageVoiceLabel": "Read text messages aloud",
     "EnableMessageVoiceLabelHelp": "When off, incoming text messages only show a notification and are not read aloud",
     "CheckUpdateLabel": "Check Update",
+    "OfficialWebsiteLabel": "Official Site",
     "CheckUpdateSucc": "Update Successfully"
 }

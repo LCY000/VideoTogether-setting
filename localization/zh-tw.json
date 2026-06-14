@@ -24,5 +24,6 @@
     "EnableMessageVoiceLabel": "文字訊息語音播報",
     "EnableMessageVoiceLabelHelp": "關閉後，收到文字訊息時只會顯示通知，不會用語音念出來",
     "CheckUpdateLabel": "檢查更新",
+    "OfficialWebsiteLabel": "官方網站",
     "CheckUpdateSucc": "更新成功"
 }

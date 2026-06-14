@@ -85,6 +85,7 @@
     "EnableMessageVoiceLabel": "文字讯息语音播报",
     "EnableMessageVoiceLabelHelp": "关闭后，收到文字讯息时只会显示通知，不会用语音念出来",
     "CheckUpdateLabel": "检查更新",
+    "OfficialWebsiteLabel": "官方网站",
     "CheckUpdateSucc": "更新成功"
 },
                             "zh-tw": {
@@ -113,6 +114,7 @@
     "EnableMessageVoiceLabel": "文字訊息語音播報",
     "EnableMessageVoiceLabelHelp": "關閉後，收到文字訊息時只會顯示通知，不會用語音念出來",
     "CheckUpdateLabel": "檢查更新",
+    "OfficialWebsiteLabel": "官方網站",
     "CheckUpdateSucc": "更新成功"
 }
 ,
@@ -142,6 +144,7 @@
     "EnableMessageVoiceLabel": "Read text messages aloud",
     "EnableMessageVoiceLabelHelp": "When off, incoming text messages only show a notification and are not read aloud",
     "CheckUpdateLabel": "Check Update",
+    "OfficialWebsiteLabel": "Official Site",
     "CheckUpdateSucc": "Update Successfully"
 },
                             'ja-jp': {
@@ -170,6 +173,7 @@
     "EnableMessageVoiceLabel": "テキストメッセージを音声で読み上げる",
     "EnableMessageVoiceLabelHelp": "オフにすると、受信したテキストメッセージは通知のみ表示され、音声で読み上げられません",
     "CheckUpdateLabel": "更新を確認",
+    "OfficialWebsiteLabel": "公式サイト",
     "CheckUpdateSucc": "更新に成功しました"
 }
 ,
@@ -238,6 +242,12 @@
                                 } catch (e) {
                                 }
                             }
+                            // 官方網站連結依語言切換（上游只有 zh-cn / en-us，其餘退回最接近的）
+                            try {
+                                const officialBase = (displayLanguage && displayLanguage.indexOf('zh') === 0) ? 'zh-cn' : 'en-us';
+                                const ob = document.querySelector('#OfficialWebsiteBtn');
+                                if (ob) ob.href = 'https://videotogether.github.io/' + officialBase + '/';
+                            } catch (e) { }
                             if (displayLanguage == "zh-cn") {
                                 document.getElementById('voicePannel').style.display = "none"
                             } else {
@@ -362,6 +372,12 @@
 
                         <div class="mdui-clearfix mdui-p-t-2">
                             <button class="mdui-btn" onclick="checkUpdate()" id="CheckUpdateLabel"></button>
+                            <a class="mdui-btn" id="OfficialWebsiteBtn" target="_blank" rel="noopener"
+                                href="https://videotogether.github.io/zh-cn/">
+                                <i class="mdui-icon material-icons"
+                                    style="vertical-align:middle;margin-right:4px;font-size:18px;">public</i><span
+                                    id="OfficialWebsiteLabel"></span>
+                            </a>
                         </div>
                     </div>
                 </div>

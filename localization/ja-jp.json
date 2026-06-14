@@ -24,5 +24,6 @@
     "EnableMessageVoiceLabel": "テキストメッセージを音声で読み上げる",
     "EnableMessageVoiceLabelHelp": "オフにすると、受信したテキストメッセージは通知のみ表示され、音声で読み上げられません",
     "CheckUpdateLabel": "更新を確認",
+    "OfficialWebsiteLabel": "公式サイト",
     "CheckUpdateSucc": "更新に成功しました"
 }

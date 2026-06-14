@@ -130,6 +130,12 @@
                                 } catch (e) {
                                 }
                             }
+                            // 官方網站連結依語言切換（上游只有 zh-cn / en-us，其餘退回最接近的）
+                            try {
+                                const officialBase = (displayLanguage && displayLanguage.indexOf('zh') === 0) ? 'zh-cn' : 'en-us';
+                                const ob = document.querySelector('#OfficialWebsiteBtn');
+                                if (ob) ob.href = 'https://videotogether.github.io/' + officialBase + '/';
+                            } catch (e) { }
                             if (displayLanguage == "zh-cn") {
                                 document.getElementById('voicePannel').style.display = "none"
                             } else {
@@ -254,6 +260,12 @@
 
                         <div class="mdui-clearfix mdui-p-t-2">
                             <button class="mdui-btn" onclick="checkUpdate()" id="CheckUpdateLabel"></button>
+                            <a class="mdui-btn" id="OfficialWebsiteBtn" target="_blank" rel="noopener"
+                                href="https://videotogether.github.io/zh-cn/">
+                                <i class="mdui-icon material-icons"
+                                    style="vertical-align:middle;margin-right:4px;font-size:18px;">public</i><span
+                                    id="OfficialWebsiteLabel"></span>
+                            </a>
                         </div>
                     </div>
                 </div>
