@@ -12,9 +12,10 @@
     <title>VideoTogether</title>
 </head>
 
-<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-auto">
+<body class="mdui-theme-primary-indigo mdui-theme-accent-blue mdui-theme-layout-auto">
     <!-- Toolbar -->
     <div class="mdui-toolbar mdui-color-theme">
+        <img id="vtBrandLogo" src="https://videotogether.github.io/icon/favicon-96x96.png" alt="">
         <span class="mdui-typo-title">VideoTogether</span>
         <a class="mdui-btn" id="OfficialWebsiteBtn" target="_blank" rel="noopener"
             href="https://videotogether.github.io/zh-cn/" style="margin-left:10px;color:#fff;">
@@ -641,22 +642,126 @@
     <!-- MDUI JavaScript -->
     <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
     <style>
+        :root {
+            --vt-accent: #5b8def;
+            --vt-grad: linear-gradient(135deg, #5b8def 0%, #4a78e0 100%);
+            --vt-text: #1b2440;
+            --vt-border: rgba(20, 45, 90, 0.12);
+        }
+
+        body {
+            font-family: ui-rounded, "Hiragino Maru Gothic ProN", "PingFang TC", "Microsoft JhengHei", "Segoe UI", system-ui, sans-serif !important;
+            background: linear-gradient(160deg, #e9f0fb 0%, #f5f2f0 55%, #f1ecf6 100%) !important;
+            min-height: 100vh;
+            color: var(--vt-text);
+        }
+
+        /* 頂部列：品牌藍漸層 + 柔陰影 */
+        .mdui-toolbar.mdui-color-theme {
+            background: var(--vt-grad) !important;
+            box-shadow: 0 3px 16px rgba(60, 110, 220, 0.28);
+            height: 60px;
+            padding: 0 16px;
+        }
+
+        .mdui-toolbar .mdui-typo-title {
+            font-weight: 800;
+            letter-spacing: .3px;
+        }
+
+        #vtBrandLogo {
+            width: 26px;
+            height: 26px;
+            border-radius: 7px;
+            object-fit: cover;
+            margin-right: 10px;
+            vertical-align: middle;
+            border: 1px solid rgba(255, 255, 255, 0.45);
+        }
+
+        /* 官方網站：膠囊 chip */
+        #OfficialWebsiteBtn {
+            border-radius: 999px !important;
+            padding: 0 14px !important;
+            background: rgba(255, 255, 255, 0.18);
+            text-transform: none;
+        }
+
+        #OfficialWebsiteBtn:hover {
+            background: rgba(255, 255, 255, 0.30);
+        }
+
+        /* 內容置中限寬、上下留白平衡 */
+        .mdui-container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding-top: 40px !important;
+            padding-bottom: 48px;
+        }
+
+        /* 卡片：更圓、玻璃、柔陰影、留白 */
         .mdui-card {
-            border-radius: 12px;
-            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 1px 5px 0 rgb(0 0 0 / 16%);
-            margin-top: 10px;
+            border-radius: 18px !important;
+            box-shadow: 0 14px 38px rgba(20, 40, 90, 0.10), 0 2px 8px rgba(20, 40, 90, 0.05) !important;
+            border: 1px solid var(--vt-border);
+            background: rgba(255, 255, 255, 0.94);
+            margin-top: 16px;
+            padding: 18px 22px 22px !important;
         }
 
-        .mdui-menu {
-            border-radius: 12px;
+        .mdui-card-primary-title {
+            color: var(--vt-text);
+            font-weight: 800;
+            font-size: 20px;
         }
 
-        .mdui-snackbar {
-            border-radius: 12px;
+        /* 每排設定多點呼吸 */
+        .mdui-card-content .mdui-clearfix.mdui-p-t-2 {
+            padding-top: 14px !important;
         }
 
+        /* 卡片內文字按鈕(檢查更新)用品牌藍；工具列按鈕維持白色 */
+        .mdui-container .mdui-btn {
+            color: var(--vt-accent);
+        }
+
+        .mdui-menu,
+        .mdui-snackbar,
         .mdui-select-menu {
             border-radius: 12px;
+        }
+
+        /* 深色模式（明確 dark 或 auto+系統深色）跟著走 */
+        body.mdui-theme-layout-dark {
+            background: linear-gradient(160deg, #14171f 0%, #1a1e2b 60%, #201a26 100%) !important;
+            color: #e8eaf0;
+        }
+
+        body.mdui-theme-layout-dark .mdui-card {
+            background: rgba(34, 38, 54, 0.94);
+            border-color: rgba(255, 255, 255, 0.08);
+            color: #e8eaf0;
+        }
+
+        body.mdui-theme-layout-dark .mdui-card-primary-title {
+            color: #f1f1f4;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body.mdui-theme-layout-auto {
+                background: linear-gradient(160deg, #14171f 0%, #1a1e2b 60%, #201a26 100%) !important;
+                color: #e8eaf0;
+            }
+
+            body.mdui-theme-layout-auto .mdui-card {
+                background: rgba(34, 38, 54, 0.94);
+                border-color: rgba(255, 255, 255, 0.08);
+                color: #e8eaf0;
+            }
+
+            body.mdui-theme-layout-auto .mdui-card-primary-title {
+                color: #f1f1f4;
+            }
         }
     </style>
 </body>
