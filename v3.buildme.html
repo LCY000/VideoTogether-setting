@@ -169,19 +169,17 @@
                                 document.querySelector("#PasswordProtectedRoom").checked = (e.data.data.PasswordProtectedRoom != false);
                                 document.querySelector("#WaitForLoadding").checked = (e.data.data.WaitForLoadding != false);
                                 document.querySelector("#EchoCancellation").checked = !(e.data.data.EchoCancellation === false);
-                                let isDisplayLanguageUpdated = false;
-                                try {
-                                    let newValue = e.data.data.DisplayLanguage ? e.data.data.DisplayLanguage : "";
-                                    if (newValue != document.querySelector("#DisplayLanguage").value) {
-                                        isDisplayLanguageUpdated = true;
-                                    }
-                                } catch { };
                                 let _vtLangVal = null;
                                 try { _vtLangVal = localStorage.getItem('vtSettingDisplayLanguage'); } catch (e) { }
-                                document.querySelector("#DisplayLanguage").value = _vtLangVal || e.data.data.DisplayLanguage || 'auto';
+                                let _vtDesiredLang = _vtLangVal || e.data.data.DisplayLanguage || 'auto';
+                                // 只有語言「真的改變」時才重設 select 值＋handleUpdate。
+                                // 否則每秒 PostStorage 都重設 MDUI select，會把使用者展開中的語言選單關掉
+                                // （修：語言選單一打開、約 1 秒就自己閃退）。
                                 try {
-                                    if (isDisplayLanguageUpdated) {
-                                        DisplayLanguageSelect.handleUpdate();
+                                    let _vtSel = document.querySelector("#DisplayLanguage");
+                                    if (_vtSel && _vtSel.value !== _vtDesiredLang) {
+                                        _vtSel.value = _vtDesiredLang;
+                                        try { if (DisplayLanguageSelect) DisplayLanguageSelect.handleUpdate(); } catch { }
                                     }
                                 } catch { }
 
