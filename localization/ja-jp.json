@@ -24,7 +24,7 @@
     "EnableTextMessageLabelHelp": "ルーム内のテキストチャット：同じ部屋の人とテキストをやり取りします（チャット欄）。オンにすると入力欄と受信メッセージが表示されます。",
     "EnableMiniBarLabel": "全画面動画時にミニウィンドウを表示",
     "EnableMessageVoiceLabel": "テキストメッセージを音声で読み上げる",
-    "EnableMessageVoiceLabelHelp": "オフにすると、受信したテキストメッセージは通知のみ表示され、音声で読み上げられません",
+    "EnableMessageVoiceLabelHelp": "オンにすると、ルーム内で受信したテキストメッセージを自動で読み上げます。オフでは読み上げません。",
     "CheckUpdateLabel": "新しいバージョンを確認",
     "OfficialWebsiteLabel": "公式サイト",
     "CheckUpdateSucc": "更新をリクエストしました。ページを再読み込みすると反映されます"

@@ -24,7 +24,7 @@
     "EnableTextMessageLabelHelp": "In-room text chat: send text messages to others in the same room (like a chat box). Turn on to show the input box and incoming messages.",
     "EnableMiniBarLabel": "Show the mini window during fullscreen video",
     "EnableMessageVoiceLabel": "Read text messages aloud",
-    "EnableMessageVoiceLabelHelp": "When off, incoming text messages only show a notification and are not read aloud",
+    "EnableMessageVoiceLabelHelp": "When on, incoming text messages in the room are read aloud automatically; when off, they are not.",
     "CheckUpdateLabel": "Check for updates",
     "OfficialWebsiteLabel": "Official Site",
     "CheckUpdateSucc": "Update requested — refresh the page to apply"

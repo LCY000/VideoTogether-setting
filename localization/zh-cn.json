@@ -24,7 +24,7 @@
     "EnableTextMessageLabelHelp": "房间内的即时文字消息：和同房间的人互相发文字（像聊天室）。开启后才会显示输入框与收到的消息。",
     "EnableMiniBarLabel": "全屏视频时显示迷你小窗",
     "EnableMessageVoiceLabel": "文字讯息语音播报",
-    "EnableMessageVoiceLabelHelp": "关闭后，收到文字讯息时只会显示通知，不会用语音念出来",
+    "EnableMessageVoiceLabelHelp": "开启后，房间内收到的文字消息会用语音自动念出来；关闭则不会念。",
     "CheckUpdateLabel": "检查新版本更新",
     "OfficialWebsiteLabel": "官方网站",
     "CheckUpdateSucc": "已请求更新，刷新页面后生效"
