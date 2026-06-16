@@ -14,6 +14,15 @@
 使用者點面板右上角的齒輪會開啟的設定頁。它**不直接呼叫**前端，而是透過共用的擴充 storage 連動：
 設定頁送出 `postMessage({type:15, key, value})` → 內容腳本寫入擴充 storage → 同步回所有分頁 → 前端用 `getVideoTogetherStorage(key, 預設值)` 讀取。
 
+### 推薦：和前端一起開發
+設定頁是靠共用 storage 跟前端連動的（見上），所以**最好的開發方式是把它和前端一起跑**：
+把本儲存庫 `clone` 進前端主專案的 `source/setting/`，建構並在瀏覽器載入前端擴充後，
+就能在設定頁切開關、**即時看到前端的反應**，端到端驗證連動，比單獨改設定頁直覺很多。
+
+- 前端主專案：`VideoTogether/VideoTogether`（fork：`LCY000/VideoTogether`）。
+- 前端 repo 裡有完整的「前端 ⇄ 設定頁 連動」與「開發環境」說明：`docs/<語言>/settings-linkage.md`、`docs/<語言>/development.md`。
+- 本儲存庫是**獨立的 git**：在這裡 commit / push 只動設定頁；前端的改動在前端 repo。建構時對 `source/setting` 會 `git pull`，本地有未 commit 的修改請先 commit，或用 `disable_network` 跳過。
+
 ### 檔案結構
 | 檔案 | 說明 |
 |------|------|
@@ -51,6 +60,15 @@ git push origin main      # push 後 Pages 會自動重新部署 v3.html
 ### What this is
 The settings page opened from the gear icon in the panel. It does **not** call the frontend directly; it talks through shared extension storage:
 the page posts `postMessage({type:15, key, value})` → the content script writes extension storage → it syncs back to all tabs → the frontend reads it via `getVideoTogetherStorage(key, default)`.
+
+### Recommended: develop alongside the frontend
+Because the settings page links to the frontend through shared storage (above), the **best way to develop it is together with the frontend**:
+`clone` this repo into the frontend project's `source/setting/`, build, and load the frontend extension in your browser —
+then you can flip a toggle here and **see the frontend react live**, verifying the linkage end-to-end. Far more direct than editing the settings page alone.
+
+- Frontend project: `VideoTogether/VideoTogether` (fork: `LCY000/VideoTogether`).
+- The frontend repo has the full "frontend ⇄ settings-page linkage" and "development" guides: `docs/<lang>/settings-linkage.md`, `docs/<lang>/development.md`.
+- This repo is an **independent git**: committing / pushing here only touches the settings page; frontend changes live in the frontend repo. The build runs `git pull` on `source/setting`, so commit local edits first, or use `disable_network` to skip.
 
 ### Files
 | File | Purpose |
