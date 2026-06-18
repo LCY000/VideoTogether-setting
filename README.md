@@ -53,6 +53,9 @@ git push origin main      # push 後 Pages 會自動重新部署 v3.html
 3. `localization/*.json` 四語各加 `<Key>Label`（與選用的 `<Key>LabelHelp`）。
 4. 前端用 `getVideoTogetherStorage('<Key>', 預設值)` 讀取。**預設值務必讓「未設定＝維持原本行為」**。
 
+### 疑難排解
+- **改了 `v3.html`，下次卻被「還原」／說明文字整段消失**：八成是直接手改了成品 `v3.html`，但沒同步來源。任何一次建構都會用 `v3.buildme.html` + `localization/*.json` 重新產生 v3.html，把手改蓋掉（連 ⓘ 說明標記與容器都會一起不見）。修法：`git restore v3.html` 還原，再把**文案**改進 `localization/*.json`、把**結構**（如 ⓘ 說明標記）改進 `v3.buildme.html`，重新建構即可。驗證：用 brace-match 抽出 v3.html 內嵌的各語言物件、模擬一次建構，應能原樣還原 v3.html。
+
 ---
 
 ## English
@@ -99,3 +102,6 @@ git push origin main      # Pages redeploys v3.html automatically after push
 2. For a help note, add `<span class="vt-help-trigger" onclick="toggleHelp('<Key>LabelHelp')">…<i class="vt-help-icon">info_outline</i></span>` and, right after that row, `<div id="<Key>LabelHelp" class="vt-help-text"></div>` (auto-filled with the translation; click ⓘ to expand inline).
 3. Add `<Key>Label` (and optional `<Key>LabelHelp`) to all four `localization/*.json` files.
 4. In the frontend, read it with `getVideoTogetherStorage('<Key>', default)`. **Choose the default so "unset = current behavior".**
+
+### Troubleshooting
+- **Edited `v3.html` but it got "reverted" / help text vanished after a build**: you almost certainly hand-edited the generated `v3.html` without updating the source. Any build regenerates v3.html from `v3.buildme.html` + `localization/*.json`, clobbering manual edits (the ⓘ help markup and its container disappear too). Fix: `git restore v3.html`, then put **strings** into `localization/*.json` and **structure** (e.g. the ⓘ help markup) into `v3.buildme.html`, and rebuild. To verify, brace-match the inlined per-language objects out of v3.html and simulate a build — it should reproduce v3.html exactly.

@@ -243,12 +243,16 @@
 
                         <!-- 全螢幕影片時的迷你小窗（從實驗性功能移來，屬穩定實用功能）-->
                         <div class="mdui-clearfix mdui-p-t-2">
-                            <a id="EnableMiniBarLabel"></a>
+                            <span class="vt-help-trigger" onclick="toggleHelp('EnableMiniBarLabelHelp')">
+                                <a id="EnableMiniBarLabel"></a>
+                                <i class="mdui-icon material-icons vt-help-icon">info_outline</i>
+                            </span>
                             <label class="mdui-switch mdui-float-right">
                                 <input id="EnableMiniBar" type="checkbox">
                                 <span class="mdui-switch-icon"></span>
                             </label>
                         </div>
+                        <div id="EnableMiniBarLabelHelp" class="vt-help-text"></div>
 
                         <!-- 我創建的房間，觀眾要密碼才能加入 -->
                         <div class="mdui-clearfix mdui-p-t-2">
@@ -265,12 +269,16 @@
 
                         <!-- 成員影片卡頓時，房主暫停等待 -->
                         <div class="mdui-clearfix mdui-p-t-2">
-                            <a id="WaitForLoaddingLabel"></a>
+                            <span class="vt-help-trigger" onclick="toggleHelp('WaitForLoaddingLabelHelp')">
+                                <a id="WaitForLoaddingLabel"></a>
+                                <i class="mdui-icon material-icons vt-help-icon">info_outline</i>
+                            </span>
                             <label class="mdui-switch mdui-float-right">
                                 <input id="WaitForLoadding" type="checkbox">
                                 <span class="mdui-switch-icon"></span>
                             </label>
                         </div>
+                        <div id="WaitForLoaddingLabelHelp" class="vt-help-text"></div>
 
                         <!-- 通話時開啟回聲消除和雜訊消除 -->
                         <div class="mdui-clearfix mdui-p-t-2">
