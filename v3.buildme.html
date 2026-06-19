@@ -185,8 +185,6 @@
 
                                 document.querySelector("#SkipIntroLength").value = emptyStrIfUdf(e.data.data.SkipIntroLength);
                                 document.querySelector("#SkipIntro").checked = e.data.data.SkipIntro;
-                                document.querySelector("#EasyShare").checked = (e.data.data.EasyShare != false);
-                                document.querySelector("#SuperEasyShare").checked = e.data.data.SuperEasyShare;
                                 document.querySelector("#DisableNativeM3u8Player").checked = true; // 鎖定開啟：一律停用原生 HLS 播放器以利同步（關掉會無法同步 m3u8）
                                 if (e.data.data.PublicReechoVoiceId) {
                                     updateInnerText(document.getElementById('voiceIdLabel'), "语音角色ID: " + e.data.data.PublicReechoVoiceId)
@@ -520,8 +518,6 @@
         });
         document.querySelector("#WaitForLoadding").addEventListener("change", checkBoxChanged);
         document.querySelector("#SkipIntro").addEventListener("change", checkBoxChanged);
-        document.querySelector("#EasyShare").addEventListener("change", checkBoxChanged);
-        document.querySelector("#SuperEasyShare").addEventListener("change", checkBoxChanged);
         document.querySelector("#DisableNativeM3u8Player").addEventListener("change", checkBoxChanged);
         document.querySelector("#SkipIntroLength").addEventListener("input", checkBoxChanged);
         for (let i in settingItems) {
