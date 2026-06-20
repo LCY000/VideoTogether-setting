@@ -765,12 +765,28 @@
             color: var(--vt-accent);
         }
 
-        /* 小技巧標題的前導圖示：固定同寬＋同垂直對齊，讓兩列後面的文字起點對齊（圖釘窄、開關寬，不統一寬度會錯開）*/
-        #PinTipLabel>svg,
-        #DisableTipLabel>svg {
-            width: 1.35em;
-            height: 1.35em;
-            vertical-align: -0.32em !important;
+        /* 小技巧標題的前導圖示：放進固定寬度 slot 置中——兩列文字起點對齊、圖示重心一致、並與文字留白。
+           圖釘高瘦、開關矮寬，故各自給不同尺寸讓「視覺高度」相近，再靠 slot 置中對齊。*/
+        .vt-tip-ico {
+            display: inline-block;
+            width: 1.9em;
+            text-align: center;
+            vertical-align: middle;
+            margin-right: 0.15em;
+        }
+
+        .vt-tip-ico>svg {
+            vertical-align: middle;
+        }
+
+        #PinTipLabel .vt-tip-ico>svg {
+            width: 1.2em;
+            height: 1.2em;
+        }
+
+        #DisableTipLabel .vt-tip-ico>svg {
+            width: 1.85em;
+            height: 1.85em;
         }
 
         .vt-help-text {
