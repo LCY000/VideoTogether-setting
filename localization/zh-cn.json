@@ -29,5 +29,10 @@
     "EnableMessageVoiceLabelHelp": "开启后，房间内收到的文字消息会用语音自动念出来，关闭则不会念。",
     "CheckUpdateLabel": "检查新版本更新",
     "OfficialWebsiteLabel": "官方网站",
-    "CheckUpdateSucc": "已请求更新，刷新页面后生效"
+    "CheckUpdateSucc": "已请求更新，刷新页面后生效",
+    "UsageTips": "使用小技巧",
+    "PinTipLabel": "📌 把扩展固定到工具栏，随时开关",
+    "PinTipLabelHelp": "浏览器的扩展图标常被收在工具栏的拼图图标（🧩）里。把 VideoTogether 固定出来，使用起来更方便：<br>1. 点浏览器右上角的拼图图标 🧩。<br>2. 找到「VideoTogether」，点它旁边的图钉 📌。<br>固定后，图标就会留在工具栏上，之后点一下即可打开小面板，随时开启或关闭扩展。",
+    "DisableTipLabel": "⏸️ 暂时不用？一键停用扩展（图标变灰）",
+    "DisableTipLabelHelp": "不想用的时候，不必卸载扩展，点一下就能暂时停用，网页上也不会再出现 VideoTogether 的面板：<br>1. 点工具栏上的 VideoTogether 图标，打开小面板。<br>2. 把面板上的开关切到「关」。<br>停用后，工具栏图标会变成灰色，扩展也不会在任何网页上运行。想恢复时，再点一次图标、把开关切回「开」即可。<br>💡 切换后，已打开的标签页可能需要刷新一次才会完全生效。"
 }

@@ -29,5 +29,10 @@
     "EnableMessageVoiceLabelHelp": "開啟後，房間內收到的文字訊息會用語音自動念出來，關閉則不會念。",
     "CheckUpdateLabel": "檢查新版本更新",
     "OfficialWebsiteLabel": "官方網站",
-    "CheckUpdateSucc": "已要求更新，重新整理頁面後生效"
+    "CheckUpdateSucc": "已要求更新，重新整理頁面後生效",
+    "UsageTips": "使用小技巧",
+    "PinTipLabel": "📌 把擴充釘選到工具列，隨時開關",
+    "PinTipLabelHelp": "瀏覽器的擴充圖示常被收在工具列的拼圖圖示（🧩）裡。把 VideoTogether 釘選出來，使用起來更方便：<br>1. 點瀏覽器右上角的拼圖圖示 🧩。<br>2. 找到「VideoTogether」，點它旁邊的圖釘 📌。<br>釘選後，圖示就會固定在工具列上，之後點一下即可打開小面板，隨時開啟或關閉擴充。",
+    "DisableTipLabel": "⏸️ 暫時不用？一鍵停用擴充（圖示變灰）",
+    "DisableTipLabelHelp": "不想用的時候，不必移除擴充，點一下就能暫時停用，網頁上也不會再出現 VideoTogether 的面板：<br>1. 點工具列上的 VideoTogether 圖示，打開小面板。<br>2. 把面板上的開關切到「關」。<br>停用後，工具列圖示會變成灰色，擴充也不會在任何網頁上運作。想恢復時，再點一次圖示、把開關切回「開」即可。<br>💡 切換後，已開啟的分頁可能需要重新整理一次才會完全生效。"
 }

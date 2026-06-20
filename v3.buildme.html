@@ -464,6 +464,33 @@
                 </div>
             </div>
         </div>
+        <div class="mdui-row">
+            <div class="mdui-col-xs-12">
+                <div class="mdui-card" style="padding: 10px">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title" id="UsageTips"></div>
+                    </div>
+                    <div class="mdui-card-content" style="padding-top: 0px">
+                        <!-- 小技巧①：把擴充釘選到工具列，方便隨時開關 -->
+                        <div class="mdui-clearfix mdui-p-t-2">
+                            <span class="vt-help-trigger" onclick="toggleHelp('PinTipLabelHelp')">
+                                <a id="PinTipLabel"></a>
+                                <i class="mdui-icon material-icons vt-help-icon">info_outline</i>
+                            </span>
+                        </div>
+                        <div id="PinTipLabelHelp" class="vt-help-text vt-help-open"></div>
+                        <!-- 小技巧②：暫時停用擴充（圖示變灰）-->
+                        <div class="mdui-clearfix mdui-p-t-2">
+                            <span class="vt-help-trigger" onclick="toggleHelp('DisableTipLabelHelp')">
+                                <a id="DisableTipLabel"></a>
+                                <i class="mdui-icon material-icons vt-help-icon">info_outline</i>
+                            </span>
+                        </div>
+                        <div id="DisableTipLabelHelp" class="vt-help-text vt-help-open"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         var DisplayLanguageSelect = undefined;

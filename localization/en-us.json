@@ -29,5 +29,10 @@
     "EnableMessageVoiceLabelHelp": "When on, incoming text messages in the room are read aloud automatically; when off, they are not.",
     "CheckUpdateLabel": "Check for updates",
     "OfficialWebsiteLabel": "Official Site",
-    "CheckUpdateSucc": "Update requested — refresh the page to apply"
+    "CheckUpdateSucc": "Update requested — refresh the page to apply",
+    "UsageTips": "Tips",
+    "PinTipLabel": "📌 Pin the extension to your toolbar for quick access",
+    "PinTipLabelHelp": "Browser extension icons are often tucked into the toolbar's puzzle-piece menu (🧩). Pinning VideoTogether keeps it one click away:<br>1. Click the puzzle-piece icon 🧩 at the top-right of your browser.<br>2. Find “VideoTogether” and click the pin 📌 beside it.<br>Once pinned, the icon stays on your toolbar — just click it to open the panel and turn the extension on or off anytime.",
+    "DisableTipLabel": "⏸️ Not using it now? Turn the extension off in one click",
+    "DisableTipLabelHelp": "When you don't need it, there's no need to remove the extension — one click turns it off, and the VideoTogether panel stops appearing on web pages:<br>1. Click the VideoTogether icon on your toolbar to open the panel.<br>2. Flip the switch in the panel to “off”.<br>The toolbar icon turns grey and the extension stops running on every page. To bring it back, click the icon again and switch it back “on”.<br>💡 After switching, already-open tabs may need a refresh to fully take effect."
 }
