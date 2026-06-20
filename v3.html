@@ -931,10 +931,12 @@
             vertical-align: middle;
         }
 
-        /* 小技巧行尾的 ⓘ：原本 18px 比中文字高，縮到與文字等高（只動小技巧，其他設定維持原樣）*/
+        /* 小技巧的前導圖示(1.35em)比 ⓘ 高，撐高了行高，讓行尾 ⓘ 比「VideoTogether 設定」區的 ⓘ 低約 0.6px。
+           往上微調，使其與設定區的 ⓘ 一樣置中於文字（尺寸維持 18px，不縮小）。*/
         #PinTipLabel+.vt-help-icon,
         #DisableTipLabel+.vt-help-icon {
-            font-size: 15px !important;
+            position: relative;
+            top: -0.6px;
         }
 
         .vt-help-text {
