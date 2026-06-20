@@ -765,6 +765,14 @@
             color: var(--vt-accent);
         }
 
+        /* 小技巧標題的前導圖示：固定同寬＋同垂直對齊，讓兩列後面的文字起點對齊（圖釘窄、開關寬，不統一寬度會錯開）*/
+        #PinTipLabel>svg,
+        #DisableTipLabel>svg {
+            width: 1.35em;
+            height: 1.35em;
+            vertical-align: -0.32em !important;
+        }
+
         .vt-help-text {
             display: none;
             white-space: pre-line;
