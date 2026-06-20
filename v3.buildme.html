@@ -781,6 +781,12 @@
             vertical-align: middle;
         }
 
+        /* 小技巧行尾的 ⓘ：原本 18px 比中文字高，縮到與文字等高（只動小技巧，其他設定維持原樣）*/
+        #PinTipLabel+.vt-help-icon,
+        #DisableTipLabel+.vt-help-icon {
+            font-size: 15px !important;
+        }
+
         .vt-help-text {
             display: none;
             white-space: pre-line;
